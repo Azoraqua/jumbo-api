@@ -5,7 +5,7 @@
 ```ts
 const suggestions = await getSearchSuggestions('brood');
 ```
-```json
+```js
 [
     {
         query: 'brood',
