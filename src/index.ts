@@ -7,12 +7,10 @@ const axios = new Axios({
     },
 });
 
-export type SearchSuggestion = {
-    readonly query: string;
-    readonly displayText: string;
-};
+export type Keyword = string;
+export type SearchSuggestion = string;
 
-export async function getSearchSuggestions(keyword: string): Promise<SearchSuggestion[]> {
+export async function getSearchSuggestions(keyword: Keyword): Promise<SearchSuggestion[]> {
     return axios
         .get('/search-graphql', {
             params: {
@@ -21,7 +19,6 @@ export async function getSearchSuggestions(keyword: string): Promise<SearchSugge
                         searchSuggestions(input: $input) {
                             keywords {
                                 query
-                                displayText
                             }
                         }
                     }
@@ -34,5 +31,6 @@ export async function getSearchSuggestions(keyword: string): Promise<SearchSugge
             },
         })
         .then((res) => JSON.parse(res.data).data)
-        .then((data) => data.searchSuggestions.keywords);
+        .then((data) => data.searchSuggestions.keywords)
+        .then((keywords) => keywords.map((k: { query: string }) => k.query));
 }
