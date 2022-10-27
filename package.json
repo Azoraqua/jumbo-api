@@ -1,0 +1,20 @@
+{
+  "name": "jumbo-api",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node .",
+    "build": "esbuild src/index.ts --bundle --minify --platform=node18.8 --external:./node_modules --outfile=dist/index.js"
+  },
+  "keywords": [],
+  "author": "Ronald Bunk <info@azoraqua.com>",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.7",
+    "esbuild": "^0.15.12",
+    "typescript": "^4.8.4"
+  }
+}
