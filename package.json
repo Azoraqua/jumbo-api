@@ -9,8 +9,7 @@
     "build:d.ts": "tsc src/index.ts --declaration --emitDeclarationOnly --outDir dist",
     "build": "pnpm build:ts && pnpm build:d.ts",
     "test": "jest",
-    "lint": "prettier --check src/*.ts",
-    "lint:fix": "pnpm lint --write",
+    "lint": "prettier --check --write src/*.ts",
     "ci": "pnpm lint && pnpm test"
   },
   "author": "Ronald Bunk <info@azoraqua.com>",
