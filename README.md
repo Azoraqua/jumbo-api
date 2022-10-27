@@ -1,1 +1,1 @@
-# [Jumbo](jumbo.com) API
+# [Jumbo](https://jumbo.com) API
